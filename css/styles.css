@@ -124,4 +124,21 @@ text-align:center;
 padding:20px;
 background:black;
 margin-top:40px;
+
+.newsletter input {
+display:block;
+width:100%;
+max-width:400px;
+margin:10px auto;
+padding:12px;
+border:none;
+}
+
+.newsletter button {
+background:#C62828;
+color:white;
+padding:12px 20px;
+border:none;
+cursor:pointer;
+}
 }
