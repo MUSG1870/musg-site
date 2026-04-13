@@ -3,33 +3,42 @@ font-family: Arial, sans-serif;
 margin:0;
 background:#111;
 color:white;
+line-height:1.6;
 }
 
+/* HEADER */
 header {
 display:flex;
 align-items:center;
 justify-content:space-between;
-padding:10px 20px;
+padding:15px 30px;
 background:black;
+flex-wrap:wrap;
 }
 
 .logo {
 height:50px;
 }
 
+nav {
+margin-top:10px;
+}
+
 nav a {
 color:white;
-margin:0 10px;
+margin:5px 10px;
 text-decoration:none;
+font-weight:bold;
 }
 
 nav a:hover {
 color:#C62828;
 }
 
+/* HERO */
 .hero {
 background:url('../images/hero.jpg') center/cover no-repeat;
-padding:120px 20px;
+padding:140px 20px;
 text-align:center;
 position:relative;
 }
@@ -49,24 +58,67 @@ position:relative;
 z-index:1;
 }
 
+.hero h1 {
+font-size:40px;
+margin-bottom:10px;
+}
+
+.hero p {
+font-size:20px;
+}
+
+/* SECTIONS */
 section {
-padding:40px 20px;
+padding:50px 20px;
 max-width:1000px;
 margin:auto;
 }
 
 h1, h2 {
 color:#C62828;
+margin-bottom:15px;
 }
 
+/* TABLES */
+table {
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+}
+
+th, td {
+padding:12px;
+border:1px solid #333;
+}
+
+th {
+background:#C62828;
+color:white;
+}
+
+tr:nth-child(even) {
+background:#1a1a1a;
+}
+
+/* LINKS */
+a {
+color:#C62828;
+}
+
+a:hover {
+text-decoration:underline;
+}
+
+/* VIDEO */
 iframe {
 width:100%;
 max-width:800px;
 height:450px;
 display:block;
-margin:auto;
+margin:20px auto;
 }
 
+/* FOOTER */
 footer {
 text-align:center;
 padding:20px;
