@@ -59,6 +59,14 @@ h1, h2 {
 color:#C62828;
 }
 
+iframe {
+width:100%;
+max-width:800px;
+height:450px;
+display:block;
+margin:auto;
+}
+
 footer {
 text-align:center;
 padding:20px;
