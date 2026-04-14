@@ -201,9 +201,15 @@ max-width:800px;
 display:block;
 margin:20px auto;
 border-radius:6px;
-}
-.twitter-timeline {
-margin-top:20px;
+.button {
+display:inline-block;
+background:#C62828;
+color:white;
+padding:14px 24px;
+text-decoration:none;
+font-weight:bold;
+border-radius:5px;
+margin:20px auto;
 }
 
 /* FOOTER */
