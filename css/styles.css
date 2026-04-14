@@ -160,4 +160,19 @@ transition:0.3s;
 transform:scale(1.2);
 }
 }
+
+#mc_embed_signup label {
+display:block;
+color:#000;
+font-weight:bold;
+margin-top:10px;
+}
+#mc_embed_signup input {
+display:block;
+width:100%;
+max-width:400px;
+margin:5px 0 15px;
+padding:10px;
+border:1px solid #ccc;
+}
 }
