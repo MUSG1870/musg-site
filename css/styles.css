@@ -202,6 +202,9 @@ display:block;
 margin:20px auto;
 border-radius:6px;
 }
+.twitter-timeline {
+margin-top:20px;
+}
 
 /* FOOTER */
 footer {
