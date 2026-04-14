@@ -144,7 +144,14 @@ color:white;
 padding:12px 20px;
 border:none;
 cursor:pointer;
+.newsletter {
+text-align:center;
+padding:40px 20px;
+}
 
+#mc_embed_signup {
+margin-bottom:20px;
+}
 .social-icons {
 text-align:center;
 margin-top:20px;
