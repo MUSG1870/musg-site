@@ -187,6 +187,13 @@ margin-bottom:15px;
 }
 table {
 font-size:14px;
+
+}
+.highlight-box {
+background:#1a1a1a;
+padding:20px;
+border-left:4px solid #C62828;
+margin-top:20px;
 }
 
 /* FOOTER */
