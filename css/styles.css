@@ -118,12 +118,10 @@ display:block;
 margin:20px auto;
 }
 
-/* FOOTER */
-footer {
-text-align:center;
-padding:20px;
-background:black;
-margin-top:40px;
+<footer>
+<img src="images/logo.png" alt="MUSG Logo" class="footer-logo">
+<p>© MUSG</p>
+</footer>
 
 .newsletter input {
 display:block;
