@@ -121,6 +121,12 @@ margin:20px auto;
 <footer>
 <img src="images/logo.png" alt="MUSG Logo" class="footer-logo">
 <p>© MUSG</p>
+
+.footer-logo {
+height:40px;
+display:block;
+margin:0 auto 10px;
+
 </footer>
 
 .newsletter input {
