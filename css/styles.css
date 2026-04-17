@@ -199,7 +199,14 @@ iframe {
 .button-group .button {
     margin: 5px;
 }
-
+.page-image {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    display: block;
+    margin: 30px auto;
+    border-radius: 10px; /* optional, looks nicer */
+}
 /* FOOTER */
 footer {
     text-align: center;
