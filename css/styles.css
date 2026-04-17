@@ -176,6 +176,20 @@ iframe {
 .social-icons img:hover {
     transform: scale(1.2);
 }
+.documents {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.documents img {
+    width: 220px;        /* controls size */
+    height: 140px;       /* keeps landscape shape */
+    object-fit: cover;   /* prevents stretching */
+    border-radius: 5px;
+}
 
 /* FOOTER */
 footer {
