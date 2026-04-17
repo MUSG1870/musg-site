@@ -38,10 +38,11 @@ nav a:hover {
 
 /* HERO */
 .hero {
-    background: url('../images/hero.jpg') center/cover no-repeat;
+    background: url('../images/BellStreet.jpg') center/cover no-repeat;
     padding: 140px 20px;
     text-align: center;
     position: relative;
+}
 }
 
 .hero::after {
