@@ -176,7 +176,7 @@ iframe {
 .social-icons img:hover {
     transform: scale(1.2);
 }
-.documents {
+.images {
     display: flex;
     justify-content: center;
     gap: 15px;
@@ -184,7 +184,7 @@ iframe {
     margin-top: 20px;
 }
 
-.documents img {
+.images img {
     width: 220px;        /* controls size */
     height: 140px;       /* keeps landscape shape */
     object-fit: cover;   /* prevents stretching */
