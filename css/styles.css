@@ -190,6 +190,14 @@ iframe {
     object-fit: cover;   /* prevents stretching */
     border-radius: 5px;
 }
+.button-group {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.button-group .button {
+    margin: 5px;
+}
 
 /* FOOTER */
 footer {
