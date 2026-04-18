@@ -1,4 +1,9 @@
 /* GLOBAL */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -16,11 +21,10 @@ header {
     background: black;
     flex-wrap: wrap;
 }
-
 .logo {
     height: 50px;
+    width: auto;
 }
-
 nav {
     margin-top: 10px;
 }
