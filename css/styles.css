@@ -230,11 +230,16 @@ footer {
     background: #000;
     color: #fff;
 }
-    .footer-logo {
+.footer-logo {
     height: 50px;
     width: auto;
+    display: block;
+    margin: 0 auto 10px;
+}
 }
 footer p {
     text-align: center;
     margin: 0;
 }
+
+
