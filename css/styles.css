@@ -179,13 +179,11 @@ iframe {
 .social-icons {
     display: flex;
     justify-content: center;
-    gap: 15px;
     margin-top: 20px;
 }
 
 .social-icons img {
     width: 40px;
-    margin: 0 10px;
     transition: 0.3s;
 }
 
