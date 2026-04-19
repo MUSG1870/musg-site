@@ -19,7 +19,6 @@ img {
     max-width: 100%;
     height: auto;
 }
-}
 .logo {
     height: 50px;
     width: auto;
@@ -235,7 +234,6 @@ footer {
     width: auto;
     display: block;
     margin: 0 auto 10px;
-}
 }
 footer p {
     text-align: center;
