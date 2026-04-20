@@ -125,6 +125,18 @@ a:hover {
         font-size: 16px;
     }
 }
+.news-item {
+    overflow: hidden; /* clears float */
+    margin-top: 20px;
+}
+
+.news-image {
+    float: left;
+    width: 200px;      /* good size for portrait */
+    height: auto;
+    margin: 0 20px 10px 0;
+    border-radius: 5px;
+}
 /* VIDEO */
 iframe {
     width: 100%;
