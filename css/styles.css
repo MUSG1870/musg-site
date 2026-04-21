@@ -152,7 +152,27 @@ iframe {
     width: 90%;
     max-width: 400px;
 }
+/* TABLES */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
 
+th, td {
+    padding: 12px;
+    border: 1px solid #333;
+    text-align: left;
+}
+
+th {
+    background: #C62828;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background: #1a1a1a;
+}
 /* FOOTER */
 footer {
     text-align: center;
