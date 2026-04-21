@@ -146,6 +146,15 @@ a:hover {
     margin: 0 20px 10px 0;
     border-radius: 5px;
 }
+}
+
+.news-image2 {
+    float: left;
+    width: 200px;      /* good size for portrait */
+    height: auto;
+    margin: 0 20px 10px 0;
+    border-radius: 5px;
+}
 /* VIDEO */
 iframe {
     width: 100%;
