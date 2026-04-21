@@ -128,32 +128,27 @@ a:hover {
 .news-item {
     overflow: hidden; /* clears float */
     margin-top: 20px;
+}
+
+.news-image,
+.news-image2 {
+    float: left;
+    width: 200px;
+    height: auto;
+    margin: 0 20px 10px 0;
+    border-radius: 5px;
+}
+
+/* MOBILE FIX */
 @media (max-width: 768px) {
-    .news-image {
+    .news-image,
+    .news-image2 {
         float: none;
         display: block;
         margin: 0 auto 15px;
         width: 80%;
         max-width: 300px;
     }
-}
-}
-
-.news-image {
-    float: left;
-    width: 200px;      /* good size for portrait */
-    height: auto;
-    margin: 0 20px 10px 0;
-    border-radius: 5px;
-}
-}
-
-.news-image2 {
-    float: left;
-    width: 200px;      /* good size for portrait */
-    height: auto;
-    margin: 0 20px 10px 0;
-    border-radius: 5px;
 }
 /* VIDEO */
 iframe {
