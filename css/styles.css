@@ -208,6 +208,9 @@ th {
 tr:nth-child(even) {
     background: #1a1a1a;
 }
+.page-image {
+    margin-top: 15px;
+}
 /* FOOTER */
 footer {
     text-align: center;
