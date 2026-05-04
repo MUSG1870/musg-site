@@ -131,20 +131,32 @@ h1, h2 {
 
 .news-slide {
     display: none;
-    text-align: center;
+    align-items: center;
+    gap: 20px;
+    text-align: left;
 }
 
 .news-slide.active {
-    display: block;
+    display: flex;
 }
 
 .news-slide img {
-    width: 100%;
-    max-width: 700px;     /* controls size on desktop */
-    height: auto;         /* keeps correct proportions */
-    display: block;
-    margin: 0 auto 15px auto; /* centers image */
-    border-radius: 5px;
+    width: 300px;
+    height: 180px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+    .news-slide.active {
+        display: block;
+        text-align: center;
+    }
+
+    .news-slide img {
+        width: 100%;
+        height: auto;
+    }
 }
 /* TRAVEL IMAGES */
 .away {
