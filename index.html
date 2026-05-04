@@ -9,36 +9,6 @@
   gtag('js', new Date());
 
   gtag('config', 'G-2BCTCQM6MF');
-</script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MUSG</title>
-<link rel="stylesheet" href="css/styles.css">
-</head>
-<script>
-let currentSlide = 0;
-const slides = document.querySelectorAll(".news-slide");
-
-function showSlide(index) {
-    slides.forEach((slide, i) => {
-        slide.classList.remove("active");
-        if (i === index) slide.classList.add("active");
-    });
-}
-
-function nextSlide() {
-    currentSlide = (currentSlide + 1) % slides.length;
-    showSlide(currentSlide);
-}
-
-function prevSlide() {
-    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-    showSlide(currentSlide);
-}
-
-// Initialise first slide
-showSlide(currentSlide);
-</script>
 <body>
 
 <header>
@@ -181,6 +151,35 @@ Join MUSG Now
 <p>© 2026 Maidenhead United Supporters Group</p>
 <p><a href="privacy.html">Privacy Policy</a></p>
 </footer>
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MUSG</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<script>
+let currentSlide = 0;
+const slides = document.querySelectorAll(".news-slide");
 
+function showSlide(index) {
+    slides.forEach((slide, i) => {
+        slide.classList.remove("active");
+        if (i === index) slide.classList.add("active");
+    });
+}
+
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+}
+
+function prevSlide() {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide(currentSlide);
+}
+
+// Initialise first slide
+showSlide(currentSlide);
+</script>
 </body>
 </html>
