@@ -127,6 +127,48 @@ h1, h2 {
 .news-item p {
     flex: 1;
 }
+.news-slider {
+    position: relative;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.news-slide {
+    display: none;
+    text-align: center;
+}
+
+.news-slide.active {
+    display: block;
+}
+
+.news-slide img {
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.slider-controls {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.slider-controls button {
+    background: #C62828;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.slider-controls button:hover {
+    background: #a61e1e;
+}
 
 /* VIDEO */
 iframe {
