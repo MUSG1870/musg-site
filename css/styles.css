@@ -269,6 +269,33 @@ tr:nth-child(even) {
 .page-image {
     margin-top: 15px;
 }
+.tabs {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.tab-button {
+    background: #333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.tab-button.active {
+    background: #C62828;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
 /* FOOTER */
 footer {
     text-align: center;
