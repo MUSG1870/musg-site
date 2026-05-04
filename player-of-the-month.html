@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-2BCTCQM6MF"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-2BCTCQM6MF');
-</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Player of the Month - MUSG</title>
@@ -37,13 +28,16 @@
 
 <section class="page">
 <h1>Player of the Month</h1>
+
 <div class="tabs">
-    <button class="tab-button active" onclick="showTab('#26-27')">26–27</button>
-    <button class="tab-button" onclick="showTab('#25-26')">25–26</button>
+    <button class="tab-button active" onclick="showTab('season-26-27')">26–27</button>
+    <button class="tab-button" onclick="showTab('season-25-26')">25–26</button>
 </div>
+
 <p>Vote for your standout performers and see past winners below.</p>
-</div>
-<section id="#26-27">
+
+<!-- 26–27 -->
+<div id="season-26-27" class="tab-content active">
 <h2>2026–27</h2>
 
 <p>Voting will appear here throughout the season.</p>
@@ -54,30 +48,26 @@
 <th>Selected Players</th>
 <th>Winner</th>
 </tr>
-
 <tr>
 <td>August 2026</td>
 <td>TBC</td>
 <td>TBC</td>
 </tr>
-
 </table>
+</div>
 
-</section>
-
-</tr>
-<section id="#25-26">
+<!-- 25–26 -->
+<div id="season-25-26" class="tab-content">
 <h2>2025–26</h2>
-<tr>
-  
+
 <table>
 <tr>
 <th>Month</th>
 <th>Selected Players</th>
 <th>Winner</th>
 </tr>
-  
-</tr>  
+
+<tr>
 <td>August 2025</td>
 <td>Umerah, Robinson, Popoola, de Havilland</td>
 <td>de Havilland</td>
@@ -132,6 +122,8 @@
 </tr>
 
 </table>
+</div>
+
 </section>
 
 <section>
@@ -162,14 +154,28 @@
 <td>Jordi van Stappershoef</td>
 <td>9%</td>
 </tr>
-  
+
 </table>
 </section>
-</section>
+
 <footer>
-<img src="images/logo.png" alt="MUSG Logo" class="footer-logo">
+<img src="images/logo.png" class="footer-logo">
 <p>©2026 Maidenhead United Supporters Group</p>
 </footer>
+
+<!-- TAB SCRIPT -->
+<script>
+function showTab(tabId) {
+    const tabs = document.querySelectorAll(".tab-content");
+    const buttons = document.querySelectorAll(".tab-button");
+
+    tabs.forEach(tab => tab.classList.remove("active"));
+    buttons.forEach(btn => btn.classList.remove("active"));
+
+    document.getElementById(tabId).classList.add("active");
+    event.target.classList.add("active");
+}
+</script>
 
 </body>
 </html>
