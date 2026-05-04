@@ -31,24 +31,14 @@ img {
 
 /* MOBILE */
 @media (max-width: 768px) {
-    .images {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .images img {
+    .news-slide img {
         height: auto;
     }
 
     .news-item {
         flex-direction: column;
     }
-
-    .news-item img {
-        max-width: 100%;
-        height: auto;
-    }
 }
-
 /* HEADER */
 header {
     display: flex;
@@ -117,6 +107,7 @@ h1, h2 {
     display: flex;
     gap: 20px;
     align-items: flex-start;
+    flex-wrap: wrap;   /* allows stacking on smaller screens */
 }
 
 .news-item img {
@@ -149,16 +140,24 @@ h1, h2 {
 
 .news-slide img {
     width: 100%;
-    max-height: 250px;
-    object-fit: cover;
-    border-radius: 5px;
-    margin-bottom: 10px;
+    max-width: 700px;      /* stops it being huge on desktop */
+    height: 350px;         /* consistent height */
+    object-fit: cover;     /* crops nicely */
+    border-radius: 8px;
+    margin: 0 auto 15px;
 }
 
 /* TRAVEL IMAGES */
 .away {
     width: 100%;
     max-width: 500px;
+    margin: 20px auto;
+    border-radius: 8px;
+}
+.page-image {
+    width: 100%;
+    max-width: 600px;   /* key fix */
+    height: auto;
     margin: 20px auto;
     border-radius: 8px;
 }
