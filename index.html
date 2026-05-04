@@ -9,6 +9,30 @@
   gtag('js', new Date());
 
   gtag('config', 'G-2BCTCQM6MF');
+  <script>
+let currentSlide = 0;
+const slides = document.querySelectorAll(".news-slide");
+
+function showSlide(index) {
+    slides.forEach((slide, i) => {
+        slide.classList.remove("active");
+        if (i === index) slide.classList.add("active");
+    });
+}
+
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+}
+
+function prevSlide() {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide(currentSlide);
+}
+
+// Initialise first slide
+showSlide(currentSlide);
+</script>
 <body>
 
 <header>
@@ -150,29 +174,6 @@ Join MUSG Now
 <title>MUSG</title>
 <link rel="stylesheet" href="css/styles.css">
 </head>
-<script>
-let currentSlide = 0;
-const slides = document.querySelectorAll(".news-slide");
 
-function showSlide(index) {
-    slides.forEach((slide, i) => {
-        slide.classList.remove("active");
-        if (i === index) slide.classList.add("active");
-    });
-}
-
-function nextSlide() {
-    currentSlide = (currentSlide + 1) % slides.length;
-    showSlide(currentSlide);
-}
-
-function prevSlide() {
-    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-    showSlide(currentSlide);
-}
-
-// Initialise first slide
-showSlide(currentSlide);
-</script>
 </body>
 </html>
