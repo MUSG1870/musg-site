@@ -28,7 +28,14 @@ img {
     object-fit: cover;
     border-radius: 5px;
 }
-
+.page-image {
+    width: 100%;
+    max-width: 500px;   /* reduce size */
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 10px;
+}
 /* MOBILE */
 @media (max-width: 768px) {
     .images {
