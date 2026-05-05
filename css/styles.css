@@ -138,7 +138,6 @@ h1, h2 {
 .news-slide.active {
     display: flex;
 }
-
 /* Make text take remaining space */
 .news-slide p {
     flex: 1;
@@ -236,7 +235,7 @@ iframe {
     padding: 10px;
 }
 .blog-disclaimer {
-    font-size: 12px;
+    font-size: 6px;
     color: #bbb;
     text-align: center;
     margin-top: 15px;
