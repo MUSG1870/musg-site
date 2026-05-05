@@ -235,7 +235,15 @@ iframe {
     margin-bottom: 10px;
     padding: 10px;
 }
-
+.blog-disclaimer {
+    font-size: 12px;
+    color: #bbb;
+    text-align: center;
+    margin-top: 15px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
 /* TABLES */
 table {
     width: 100%;
