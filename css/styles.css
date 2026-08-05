@@ -184,6 +184,13 @@ iframe {
     display: block;
     margin: 20px auto;
 }
+.tab-content iframe {
+    margin-bottom: 35px;
+}
+
+.tab-content p {
+    margin-bottom: 15px;
+}
 /* BUTTON */
 .button {
     display: inline-block;
