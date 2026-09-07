@@ -306,5 +306,8 @@ footer {
 }
 
 .footer-logo {
+    display: block;
     height: 50px;
+    width: auto;
+    margin: 0 auto 15px auto;
 }
