@@ -300,6 +300,72 @@ tr:nth-child(even) {
     display: block;
 }
 
+/* Christmas raffle sponsor listings */
+.raffle-sponsors {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 25px 0;
+}
+
+.sponsor {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 18px;
+  background: #f5f7fa;
+  border-radius: 8px;
+  border: 1px solid #e1e6ed;
+}
+
+.sponsor-logo {
+  display: block;
+  flex: 0 0 160px;
+  width: 160px;
+  height: 100px;
+  object-fit: contain;
+  background: #fff;
+  padding: 8px;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.sponsor-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.sponsor-info h3 {
+  margin: 0 0 8px;
+}
+
+.sponsor-info p {
+  margin: 0 0 10px;
+}
+
+.sponsor-info a {
+  overflow-wrap: anywhere;
+}
+
+.raffle-closing {
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+/* Mobile layout */
+@media (max-width: 600px) {
+  .sponsor {
+    align-items: flex-start;
+    gap: 14px;
+    padding: 12px;
+  }
+
+  .sponsor-logo {
+    flex-basis: 100px;
+    width: 100px;
+    height: 80px;
+  }
+}
 /* FOOTER */
 footer {
     text-align: center;
