@@ -321,12 +321,13 @@ footer {
     column-gap: 20px;
     row-gap: 0;
 }
-
 .raffle-sponsors .sponsor .images-logo {
     grid-column: 1;
     grid-row: 1;
-    width: 160px;
-    height: 100px;
+    width: 120px;
+    height: 75px;
+    object-fit: contain;
+}
 }
 
 .raffle-sponsors .sponsor .images-info {
