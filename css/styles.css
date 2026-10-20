@@ -314,21 +314,22 @@ footer {
 
 /* CHRISTMAS RAFFLE SPONSORS */
 
+/* CHRISTMAS RAFFLE SPONSORS */
 .raffle-sponsors {
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    margin: 25px 0;
+    gap: 12px;
+    margin: 20px 0;
     width: 100%;
     box-sizing: border-box;
 }
 
 .sponsor {
     display: grid;
-    grid-template-columns: 160px minmax(0, 1fr);
+    grid-template-columns: 125px minmax(0, 1fr);
     align-items: center;
-    gap: 24px;
-    padding: 18px;
+    gap: 20px;
+    padding: 12px 16px;
     background: #f5f7fa;
     color: #222;
     border: 1px solid #e1e6ed;
@@ -339,12 +340,12 @@ footer {
 
 .images-logo {
     display: block;
-    width: 160px;
-    height: 100px;
+    width: 125px;
+    height: 80px;
     max-width: 100%;
     object-fit: contain;
     background: #fff;
-    padding: 8px;
+    padding: 6px;
     border-radius: 4px;
     box-sizing: border-box;
 }
@@ -356,48 +357,49 @@ footer {
 
 .images-info h3 {
     color: #C62828;
-    font-size: 20px;
+    font-size: 19px;
     line-height: 1.3;
-    margin: 0 0 8px;
+    margin: 0 0 4px;
 }
 
 .images-info p {
-    font-size: 15px;
-    line-height: 1.5;
-    margin: 0 0 10px;
+    font-size: 14px;
+    line-height: 1.45;
+    margin: 0 0 6px;
 }
 
 .images-info a {
     color: #C62828;
+    font-size: 14px;
     font-weight: bold;
     overflow-wrap: anywhere;
 }
 
 .raffle-closing {
-    margin-top: 20px;
+    margin-top: 16px;
     font-weight: bold;
 }
 
-/* MOBILE SPONSOR LAYOUT */
-
+/* MOBILE */
 @media (max-width: 600px) {
     .sponsor {
-        grid-template-columns: 100px minmax(0, 1fr);
-        gap: 14px;
-        padding: 12px;
+        grid-template-columns: 85px minmax(0, 1fr);
+        gap: 12px;
+        padding: 10px;
     }
 
     .images-logo {
-        width: 100px;
-        height: 80px;
+        width: 85px;
+        height: 65px;
     }
 
     .images-info h3 {
-        font-size: 17px;
+        font-size: 16px;
     }
 
-    .images-info p {
-        font-size: 14px;
+    .images-info p,
+    .images-info a {
+        font-size: 13px;
     }
 }
     width: 100px;
