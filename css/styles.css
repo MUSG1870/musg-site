@@ -331,7 +331,7 @@ footer {
   border: 1px solid #e1e6ed;
 }
 
-.sponsor-logo {
+.images-logo {
   display: block;
   flex: 0 0 160px;
   width: 160px;
@@ -343,20 +343,20 @@ footer {
   box-sizing: border-box;
 }
 
-.sponsor-info {
+.images-info {
   flex: 1;
   min-width: 0;
 }
 
-.sponsor-info h3 {
+.images-info h3 {
   margin: 0 0 8px;
 }
 
-.sponsor-info p {
+.images-info p {
   margin: 0 0 10px;
 }
 
-.sponsor-info a {
+.images-info a {
   overflow-wrap: anywhere;
 }
 
@@ -373,7 +373,7 @@ footer {
     padding: 12px;
   }
 
-  .sponsor-logo {
+  .images-logo {
     flex-basis: 100px;
     width: 100px;
     height: 80px;
