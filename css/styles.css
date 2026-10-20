@@ -299,6 +299,19 @@ tr:nth-child(even) {
 .tab-content.active {
     display: block;
 }
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: black;
+}
+
+.footer-logo {
+    display: block;
+    height: 50px;
+    width: auto;
+    margin: 0 auto 15px auto;
+}
 
 /* Christmas raffle sponsor listings */
 .raffle-sponsors {
@@ -365,17 +378,4 @@ tr:nth-child(even) {
     width: 100px;
     height: 80px;
   }
-}
-/* FOOTER */
-footer {
-    text-align: center;
-    padding: 20px;
-    background: black;
-}
-
-.footer-logo {
-    display: block;
-    height: 50px;
-    width: auto;
-    margin: 0 auto 15px auto;
 }
