@@ -96,7 +96,9 @@ To book yourself on a forthcoming coach, please get in touch using the options b
 <h2>Coach Travel Booking Form</h2>
 
 <p>Please complete your contact details and add a passenger row for each membership/category combination in your booking.</p>
-
+<p class="booking-required-note">
+    Fields marked * are required.
+</p>
 <form id="coach-booking-form" action="https://formsubmit.co/musgyorkroad@gmail.com" method="POST">
 
 <input type="hidden" name="_subject" value="New MUSG Coach Travel Booking">
@@ -112,30 +114,30 @@ To book yourself on a forthcoming coach, please get in touch using the options b
 
 <div class="booking-grid">
 <div class="booking-field">
-<label for="first-name">First Name</label>
+<label for="first-name">First Name*</label>
 <input type="text" id="first-name" name="First Name" required>
 </div>
 
 <div class="booking-field">
-<label for="surname">Surname</label>
+<label for="surname">Surname*</label>
 <input type="text" id="surname" name="Surname" required>
 </div>
 
 <div class="booking-field">
-<label for="email-address">Email Address</label>
+<label for="email-address">Email Address*</label>
 <input type="email" id="email-address" name="_email" required>
 </div>
 
 <div class="booking-field">
 <label for="mobile-number">Mobile Number</label>
-<input type="tel" id="mobile-number" name="Mobile Number" value="+44 " required>
+<input type="tel" id="mobile-number" name="Mobile Number" value="+44 ">
 </div>
 </div>
 
 <h3>Fixture</h3>
 
 <div class="booking-field">
-<label for="fixture">Select Fixture</label>
+<label for="fixture">Select Fixture*</label>
 <select id="fixture" name="Fixture" required>
 <option value="">Please select a fixture</option>
 <option value="Farnham FC - 24 November 2026">Farnham FC – Tuesday 24 November 2026</option>
@@ -143,7 +145,7 @@ To book yourself on a forthcoming coach, please get in touch using the options b
 </select>
 </div>
 
-<h3>Passenger Details</h3>
+<h3>Passenger Details*</h3>
 
 <p class="booking-small-note">
 Add a separate row for each combination of membership status and passenger category. You can add as many rows as required.
@@ -163,7 +165,7 @@ Add a separate row for each combination of membership status and passenger categ
 <h3>Payment Method</h3>
 
 <div class="booking-field">
-<label for="payment-method">How would you prefer to pay?</label>
+<label for="payment-method">How would you prefer to pay?*</label>
 <select id="payment-method" name="Payment Method" required>
 <option value="">Please select</option>
 <option value="Bank Transfer">Bank Transfer</option>
@@ -216,7 +218,7 @@ function addPassengerRow() {
 
         <div class="booking-grid">
             <div class="booking-field">
-                <label>Membership Status</label>
+                <label>Membership Status*</label>
                 <select class="passenger-membership" required>
                     <option value="">Select status</option>
                     <option value="MUSG Member">MUSG Member</option>
@@ -226,7 +228,7 @@ function addPassengerRow() {
             </div>
 
             <div class="booking-field">
-                <label>Passenger Category</label>
+                <label>Passenger Category*</label>
                 <select class="passenger-category" required>
                     <option value="">Select category</option>
                     <option value="Adult">Adult</option>
@@ -235,7 +237,7 @@ function addPassengerRow() {
             </div>
 
             <div class="booking-field">
-                <label>Number of Spaces</label>
+                <label>Number of Spaces*</label>
                 <input type="number" class="passenger-quantity" min="1" max="20" value="1" required>
             </div>
 
