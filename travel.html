@@ -1,25 +1,26 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-2BCTCQM6MF"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-2BCTCQM6MF');
-</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Away Travel - MUSG</title>
 <link rel="stylesheet" href="css/styles.css">
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2BCTCQM6MF"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-2BCTCQM6MF');
+</script>
 </head>
 
 <body>
 
 <header>
-<img src="images/logo.png" class="logo">
+<img src="images/logo.png" class="logo" alt="MUSG Logo">
 <nav>
 <a href="index.html">Home</a>
 <a href="about.html">About</a>
@@ -42,7 +43,7 @@
 <p>We organise coach travel to away fixtures throughout the season.</p>
 
 <p>
-Select away day coach offerings. *Add £5 if not an MUSG Member unless otherwise stated. 
+Select away day coach offerings. *Add £5 if not an MUSG Member unless otherwise stated.
 All departures from York Road.
 </p>
 
@@ -54,7 +55,6 @@ All departures from York Road.
 <th>Cost (Junior U16 Member)</th>
 <th>Departure Time</th>
 </tr>
-
 <tr>
 <td>24th November 2026</td>
 <td>Farnham FC</td>
@@ -62,7 +62,6 @@ All departures from York Road.
 <td>£15*</td>
 <td>17:15</td>
 </tr>
-
 <tr>
 <td>23rd February 2027</td>
 <td>Torquay United FC</td>
@@ -70,10 +69,9 @@ All departures from York Road.
 <td>£30*</td>
 <td>13:15</td>
 </tr>
-
 </table>
+
 <img src="images/coachtofarnham.PNG" class="page-image" alt="Farnham">
-  
 <img src="images/awaytodover.jpeg" class="page-image" alt="MUSG Away Travel">
 
 </section>
@@ -83,21 +81,306 @@ All departures from York Road.
 <h2>Contact MUSG</h2>
 
 <p>
-To book yourself on a forthcoming coach, please get in touch using the link below.
+To book yourself on a forthcoming coach, please get in touch using the options below.
 </p>
 
-<p style="text-align:center;">
+<div class="button-group travel-contact-buttons">
 <a href="mailto:musgyorkroad@gmail.com?subject=MUSG Coach Travel" class="button">
 Email MUSG
 </a>
+
+<button type="button" class="button" id="open-booking">
+Book Place
+</button>
+</div>
+
+<div id="booking-form-container" class="booking-form-container" hidden>
+
+<h2>Coach Travel Booking Form</h2>
+
+<p>Please complete your contact details and add a passenger row for each membership/category combination in your booking.</p>
+
+<form id="coach-booking-form" action="https://formsubmit.co/musgyorkroad@gmail.com" method="POST">
+
+<input type="hidden" name="_subject" value="New MUSG Coach Travel Booking">
+<input type="hidden" name="_template" value="table">
+<input type="hidden" name="Booking total" id="booking-total-hidden">
+<input type="hidden" name="Booking price breakdown" id="booking-breakdown-hidden">
+<input type="hidden" name="Booking submitted" id="booking-date-hidden">
+
+<!-- Spam honeypot: leave this field empty -->
+<input type="text" name="_honey" tabindex="-1" autocomplete="off" class="booking-honey">
+
+<h3>Contact Details</h3>
+
+<div class="booking-grid">
+<div class="booking-field">
+<label for="first-name">First Name</label>
+<input type="text" id="first-name" name="First Name" required>
+</div>
+
+<div class="booking-field">
+<label for="surname">Surname</label>
+<input type="text" id="surname" name="Surname" required>
+</div>
+
+<div class="booking-field">
+<label for="email-address">Email Address</label>
+<input type="email" id="email-address" name="_replyto" required>
+</div>
+
+<div class="booking-field">
+<label for="mobile-number">Mobile Number</label>
+<input type="tel" id="mobile-number" name="Mobile Number" value="+44 " required>
+</div>
+</div>
+
+<h3>Fixture</h3>
+
+<div class="booking-field">
+<label for="fixture">Select Fixture</label>
+<select id="fixture" name="Fixture" required>
+<option value="">Please select a fixture</option>
+<option value="Farnham FC - 24 November 2026">Farnham FC – Tuesday 24 November 2026</option>
+<option value="Torquay United FC - 23 February 2027">Torquay United FC – Tuesday 23 February 2027</option>
+</select>
+</div>
+
+<h3>Passenger Details</h3>
+
+<p class="booking-small-note">
+Add a separate row for each combination of membership status and passenger category. You can add as many rows as required.
 </p>
+
+<div id="passenger-rows"></div>
+
+<button type="button" class="button secondary-button" id="add-passenger">
++ Add Another Passenger Row
+</button>
+
+<div class="booking-total">
+<span>Booking Total</span>
+<strong id="booking-total-display">£0.00</strong>
+</div>
+
+<h3>Payment Method</h3>
+
+<div class="booking-field">
+<label for="payment-method">How would you prefer to pay?</label>
+<select id="payment-method" name="Payment Method" required>
+<option value="">Please select</option>
+<option value="Bank Transfer">Bank Transfer</option>
+<option value="Pay on MUFC Match Day">Pay on MUFC Match Day</option>
+<option value="Pay on Coach">Pay on Coach</option>
+</select>
+</div>
+
+<div class="booking-field">
+<label for="booking-notes">Additional Information (optional)</label>
+<textarea id="booking-notes" name="Additional Information" rows="3" placeholder="Any additional information relevant to your booking"></textarea>
+</div>
+
+<p class="booking-terms">
+Submitting this form is a booking request. Your place is only reserved once payment has been received. Payments are non-refundable.
+</p>
+
+<button type="submit" class="button">Submit Booking</button>
+
+</form>
+</div>
 
 <p style="text-align:center; margin-top:20px;">
 <a href="terms.html">View Travel Terms & Conditions</a>
 </p>
 
 </section>
-</footer>
+
+<script>
+const fixtureSelect = document.getElementById("fixture");
+const passengerRows = document.getElementById("passenger-rows");
+const totalDisplay = document.getElementById("booking-total-display");
+const totalHidden = document.getElementById("booking-total-hidden");
+const breakdownHidden = document.getElementById("booking-breakdown-hidden");
+
+let passengerCount = 0;
+
+function addPassengerRow() {
+    passengerCount++;
+
+    const row = document.createElement("div");
+    row.className = "passenger-row";
+    row.dataset.row = passengerCount;
+
+    row.innerHTML = `
+        <div class="passenger-row-heading">
+            <strong>Passenger row ${passengerCount}</strong>
+            <button type="button" class="remove-passenger" aria-label="Remove this passenger row">Remove</button>
+        </div>
+
+        <div class="booking-grid">
+            <div class="booking-field">
+                <label>Membership Status</label>
+                <select class="passenger-membership" required>
+                    <option value="">Select status</option>
+                    <option value="MUSG Member">MUSG Member</option>
+                    <option value="Not a Member">Not a Member</option>
+                    <option value="Unsure">Unsure</option>
+                </select>
+            </div>
+
+            <div class="booking-field">
+                <label>Passenger Category</label>
+                <select class="passenger-category" required>
+                    <option value="">Select category</option>
+                    <option value="Adult">Adult</option>
+                    <option value="Junior U16">Junior U16</option>
+                </select>
+            </div>
+
+            <div class="booking-field">
+                <label>Number of Spaces</label>
+                <input type="number" class="passenger-quantity" min="1" max="20" value="1" required>
+            </div>
+
+            <div class="booking-field">
+                <label>Line Cost</label>
+                <output class="passenger-line-cost">£0.00</output>
+                <input type="hidden" class="passenger-cost">
+            </div>
+        </div>
+    `;
+
+    passengerRows.appendChild(row);
+
+    row.querySelectorAll("select, input").forEach(field => {
+        field.addEventListener("change", updateTotal);
+        field.addEventListener("input", updateTotal);
+    });
+
+    row.querySelector(".remove-passenger").addEventListener("click", () => {
+        row.remove();
+        updateTotal();
+    });
+
+    updateTotal();
+}
+
+function getPassengerPrice(category, membership, fixture) {
+    if (!category || !membership || !fixture) return 0;
+
+    const isJunior = category === "Junior U16";
+    const isMember = membership === "MUSG Member";
+
+    if (fixture.startsWith("Torquay")) {
+        const today = new Date();
+        const deadline = new Date(2026, 11, 1, 23, 59, 59);
+
+        if (today <= deadline) {
+            return isJunior ? 24 : 34;
+        }
+
+        let price = isJunior ? 30 : 40;
+        if (!isMember) price += 5;
+        return price;
+    }
+
+    if (fixture.startsWith("Farnham")) {
+        let price = isJunior ? 15 : 18;
+        if (!isMember) price += 5;
+        return price;
+    }
+
+    return 0;
+}
+
+function updateTotal() {
+    let total = 0;
+    const breakdown = [];
+
+    passengerRows.querySelectorAll(".passenger-row").forEach((row, index) => {
+        const membership = row.querySelector(".passenger-membership").value;
+        const category = row.querySelector(".passenger-category").value;
+        const quantity = Number(row.querySelector(".passenger-quantity").value) || 0;
+
+        const unitPrice = getPassengerPrice(category, membership, fixtureSelect.value);
+        const lineTotal = unitPrice * quantity;
+
+        row.querySelector(".passenger-line-cost").textContent =
+            "£" + lineTotal.toFixed(2);
+
+        row.querySelector(".passenger-cost").value =
+            "£" + lineTotal.toFixed(2);
+
+        row.querySelector(".passenger-membership").name =
+            `Passenger ${index + 1} - Membership Status`;
+        row.querySelector(".passenger-category").name =
+            `Passenger ${index + 1} - Category`;
+        row.querySelector(".passenger-quantity").name =
+            `Passenger ${index + 1} - Number of Spaces`;
+        row.querySelector(".passenger-cost").name =
+            `Passenger ${index + 1} - Line Cost`;
+
+        if (quantity > 0 && category && membership && fixtureSelect.value) {
+            total += lineTotal;
+            breakdown.push(
+                `Row ${index + 1}: ${quantity} x ${category}, ${membership}, £${lineTotal.toFixed(2)}`
+            );
+        }
+    });
+
+    totalDisplay.textContent = "£" + total.toFixed(2);
+    totalHidden.value = "£" + total.toFixed(2);
+    breakdownHidden.value = breakdown.join("\n");
+}
+
+document.getElementById("add-passenger").addEventListener("click", addPassengerRow);
+fixtureSelect.addEventListener("change", updateTotal);
+
+document.getElementById("open-booking").addEventListener("click", () => {
+    const container = document.getElementById("booking-form-container");
+    container.hidden = false;
+    container.scrollIntoView({ behavior: "smooth", block: "start" });
+
+    if (passengerRows.children.length === 0) {
+        addPassengerRow();
+    }
+});
+
+document.getElementById("coach-booking-form").addEventListener("submit", function(event) {
+    updateTotal();
+
+    if (!fixtureSelect.value || passengerRows.children.length === 0) {
+        event.preventDefault();
+        alert("Please select a fixture and add at least one passenger row.");
+        return;
+    }
+
+    const rows = [...passengerRows.querySelectorAll(".passenger-row")];
+    const incomplete = rows.some(row =>
+        !row.querySelector(".passenger-membership").value ||
+        !row.querySelector(".passenger-category").value ||
+        Number(row.querySelector(".passenger-quantity").value) < 1
+    );
+
+    if (incomplete) {
+        event.preventDefault();
+        alert("Please complete all passenger rows, or remove any unused rows.");
+        return;
+    }
+
+    if (Number(totalHidden.value.replace(/[£,]/g, "")) <= 0) {
+        event.preventDefault();
+        alert("Please check your fixture and passenger details.");
+        return;
+    }
+
+    document.getElementById("booking-date-hidden").value =
+        new Date().toLocaleString("en-GB", { timeZone: "Europe/London" });
+});
+
+addPassengerRow();
+</script>
 
 </body>
 </html>
+
