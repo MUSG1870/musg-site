@@ -658,3 +658,8 @@ footer {
         min-width: 0;
     }
 }
+.booking-required-note {
+    color: #555;
+    font-size: 13px;
+    margin-bottom: 15px;
+}
