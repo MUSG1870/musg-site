@@ -247,7 +247,7 @@ function addPassengerRow() {
 
             <div class="booking-field">
                 <label>Number of Spaces*</label>
-                <input type="number" class="passenger-quantity" min="1" max="20" value="1" required>
+                <input type="number" class="passenger-quantity" min="1" max="" value="1" required>
             </div>
 
             <div class="booking-field">
@@ -297,7 +297,13 @@ function getPassengerPrice(category, membership, fixture) {
         if (!isMember) price += 5;
         return price;
     }
+    }
 
+    if (fixture.startsWith("Weston")) {
+        let price = isJunior ? 20 : 30;
+        if (!isMember) price += 5;
+        return price;
+    }
     return 0;
 }
 
