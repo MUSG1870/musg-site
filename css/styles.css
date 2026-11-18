@@ -382,6 +382,183 @@ footer {
     font-weight: bold;
 }
 
+/* MUSG COACH BOOKING FORM */
+
+.travel-contact-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+.booking-form-container {
+    max-width: 850px;
+    margin: 30px auto;
+    padding: 24px;
+    background: #f5f7fa;
+    border: 1px solid #dce2e8;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.booking-form-container[hidden] {
+    display: none;
+}
+
+.booking-form-container h2 {
+    margin-top: 0;
+}
+
+.booking-form-container h3 {
+    margin: 25px 0 12px;
+    color: #222;
+    border-bottom: 1px solid #dce2e8;
+    padding-bottom: 7px;
+}
+
+.booking-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.booking-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+    margin-bottom: 14px;
+}
+
+.booking-field label {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.booking-field input,
+.booking-field select,
+.booking-field textarea {
+    width: 100%;
+    min-height: 43px;
+    padding: 10px;
+    border: 1px solid #cbd2da;
+    border-radius: 5px;
+    background: #fff;
+    color: #222;
+    font: inherit;
+    box-sizing: border-box;
+}
+
+.booking-field textarea {
+    min-height: 85px;
+    resize: vertical;
+}
+
+.booking-small-note {
+    font-size: 14px;
+    color: #555;
+}
+
+.passenger-row {
+    background: #fff;
+    border: 1px solid #dce2e8;
+    border-radius: 7px;
+    padding: 15px;
+    margin: 14px 0;
+}
+
+.passenger-row-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.remove-passenger {
+    border: 0;
+    background: none;
+    color: #b3261e;
+    text-decoration: underline;
+    cursor: pointer;
+    font: inherit;
+    font-size: 13px;
+}
+
+.passenger-line-cost {
+    display: block;
+    min-height: 43px;
+    padding: 10px;
+    background: #f5f7fa;
+    border: 1px solid #cbd2da;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-weight: bold;
+}
+
+.secondary-button {
+    margin: 5px 0 15px;
+}
+
+.booking-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin: 20px 0;
+    padding: 16px;
+    background: #e8f5f8;
+    border-radius: 7px;
+    font-size: 18px;
+}
+
+.booking-total strong {
+    font-size: 22px;
+}
+
+.booking-terms {
+    margin: 20px 0;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #444;
+}
+
+.booking-honey {
+    position: absolute;
+    left: -5000px;
+}
+
+@media (max-width: 600px) {
+    .booking-form-container {
+        padding: 15px;
+        margin: 20px 0;
+    }
+
+    .booking-grid {
+        grid-template-columns: 1fr;
+        gap: 5px;
+    }
+
+    .travel-contact-buttons {
+        flex-direction: column;
+    }
+
+    .travel-contact-buttons .button {
+        width: 100%;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+    .booking-total {
+        font-size: 16px;
+    }
+
+    .booking-total strong {
+        font-size: 20px;
+    }
+}
 /* MOBILE */
 @media (max-width: 600px) {
     .raffle-sponsors .sponsor {
