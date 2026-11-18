@@ -581,3 +581,80 @@ footer {
         font-size: 13px;
     }
 }
+
+/* MUSG BOOKING FORM - TEXT VISIBILITY AND BUTTON ALIGNMENT */
+
+.booking-form-container {
+    color: #222;
+}
+
+.booking-form-container p,
+.booking-form-container label,
+.booking-form-container strong,
+.booking-form-container span,
+.booking-form-container output {
+    color: #222;
+}
+
+.booking-form-container h2 {
+    color: #C62828;
+}
+
+.booking-form-container h3 {
+    color: #222;
+}
+
+.booking-form-container input,
+.booking-form-container select,
+.booking-form-container textarea {
+    color: #222;
+    background-color: #fff;
+}
+
+.booking-form-container input::placeholder,
+.booking-form-container textarea::placeholder {
+    color: #666;
+    opacity: 1;
+}
+
+.booking-form-container select option {
+    color: #222;
+    background-color: #fff;
+}
+
+.booking-form-container input:-webkit-autofill,
+.booking-form-container input:-webkit-autofill:hover,
+.booking-form-container input:-webkit-autofill:focus {
+    -webkit-text-fill-color: #222;
+}
+
+.booking-form-container .passenger-line-cost {
+    color: #222;
+}
+
+.booking-form-container .remove-passenger {
+    color: #b3261e;
+}
+/* Make Email MUSG and Book Coach identical in size */
+.travel-contact-buttons {
+    margin: 20px 0 25px;
+}
+
+.travel-contact-buttons .button {
+    width: 160px;
+    min-width: 160px;
+    box-sizing: border-box;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    border: none;
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .travel-contact-buttons .button {
+        width: 100%;
+        min-width: 0;
+    }
+}
