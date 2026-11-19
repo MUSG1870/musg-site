@@ -237,6 +237,7 @@ let passengerCount = 0;
 
 // ADD A PASSENGER ROW
 
+
 function addPassengerRow() {
 
     passengerCount++;
@@ -263,22 +264,32 @@ function addPassengerRow() {
 
             <div class="booking-field">
                 <label>Full Name*</label>
-                <input type="text" class="passenger-name" required>
+                <input type="text"
+                    class="passenger-name"
+                    name="Passenger ${passengerCount} - Full Name"
+                    required>
             </div>
 
             <div class="booking-field">
                 <label>Email Address*</label>
-                <input type="email" class="passenger-email" required>
+                <input type="email"
+                    class="passenger-email"
+                    name="Passenger ${passengerCount} - Email"
+                    required>
             </div>
 
             <div class="booking-field">
                 <label>Mobile Number</label>
-                <input type="tel" class="passenger-mobile">
+                <input type="tel"
+                    class="passenger-mobile"
+                    name="Passenger ${passengerCount} - Mobile Number">
             </div>
 
             <div class="booking-field">
                 <label>Membership Status*</label>
-                <select class="passenger-membership" required>
+                <select class="passenger-membership"
+                    name="Passenger ${passengerCount} - Membership Status"
+                    required>
                     <option value="">Select status</option>
                     <option value="MUSG Member">MUSG Member</option>
                     <option value="Not a Member">Not a Member</option>
@@ -288,7 +299,9 @@ function addPassengerRow() {
 
             <div class="booking-field">
                 <label>Passenger Category*</label>
-                <select class="passenger-category" required>
+                <select class="passenger-category"
+                    name="Passenger ${passengerCount} - Category"
+                    required>
                     <option value="">Select category</option>
                     <option value="Adult">Adult</option>
                     <option value="Junior U16">Junior U16</option>
@@ -298,7 +311,9 @@ function addPassengerRow() {
             <div class="booking-field">
                 <label>Line Cost</label>
                 <output class="passenger-line-cost">£0.00</output>
-                <input type="hidden" class="passenger-cost">
+                <input type="hidden"
+                    class="passenger-cost"
+                    name="Passenger ${passengerCount} - Line Cost">
             </div>
 
         </div>
@@ -338,14 +353,12 @@ function addPassengerRow() {
 
     });
 
-
     // Update totals when passenger details change
 
     row.querySelectorAll("select, input:not([type='checkbox'])").forEach(field => {
         field.addEventListener("change", updateTotal);
         field.addEventListener("input", updateTotal);
     });
-
 
     // Remove passenger row
 
@@ -362,8 +375,6 @@ function addPassengerRow() {
     updateTotal();
 
 }
-
-
 // COPY BOOKING DETAILS INTO SELECTED PASSENGER
 
 function copyBookingDetails(row) {
@@ -498,28 +509,6 @@ function updateTotal() {
 
         row.querySelector(".passenger-cost").value =
             "£" + lineTotal.toFixed(2);
-
-
-        // Give each passenger field its own email label
-
-        row.querySelector(".passenger-name").name =
-            `Passenger ${index + 1} - Full Name`;
-
-        row.querySelector(".passenger-email").name =
-            `Passenger ${index + 1} - Email`;
-
-        row.querySelector(".passenger-mobile").name =
-            `Passenger ${index + 1} - Mobile Number`;
-
-        row.querySelector(".passenger-membership").name =
-            `Passenger ${index + 1} - Membership Status`;
-
-        row.querySelector(".passenger-category").name =
-            `Passenger ${index + 1} - Category`;
-
-        row.querySelector(".passenger-cost").name =
-            `Passenger ${index + 1} - Line Cost`;
-
 
         if (category && membership && fixtureSelect.value) {
 
