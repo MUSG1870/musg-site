@@ -139,25 +139,25 @@ To book yourself on a forthcoming coach, please get in touch using the below but
 <h3>Contact Details</h3>
 
 <div class="booking-grid">
-<div class="booking-field">
-<label for="first-name">First Name*</label>
-<input type="text" id="first-name" name="First Name" required>
-</div>
 
-<div class="booking-field">
-<label for="surname">Surname*</label>
-<input type="text" id="surname" name="Surname" required>
-</div>
+    <div class="booking-field">
+        <label for="booking-full-name">Full Name*</label>
+        <input type="text" id="booking-full-name"
+            name="Full Name" required>
+    </div>
 
-<div class="booking-field">
-<label for="email-address">Email Address*</label>
-<input type="email" id="email-address" name="email" required>
-</div>
+    <div class="booking-field">
+        <label for="email-address">Email Address*</label>
+        <input type="email" id="email-address"
+            name="email" required>
+    </div>
 
-<div class="booking-field">
-<label for="mobile-number">Mobile Number</label>
-<input type="tel" id="mobile-number" name="Mobile Number" value="+44 ">
-</div>
+    <div class="booking-field">
+        <label for="mobile-number">Mobile Number</label>
+        <input type="tel" id="mobile-number"
+            name="Mobile Number" value="+44 ">
+    </div>
+
 </div>
 
 <h3>Fixture</h3>
@@ -228,9 +228,17 @@ const totalDisplay = document.getElementById("booking-total-display");
 const totalHidden = document.getElementById("booking-total-hidden");
 const breakdownHidden = document.getElementById("booking-breakdown-hidden");
 
+const bookingFullName = document.getElementById("booking-full-name");
+const bookingEmail = document.getElementById("email-address");
+const bookingMobile = document.getElementById("mobile-number");
+
 let passengerCount = 0;
 
+
+// ADD A PASSENGER ROW
+
 function addPassengerRow() {
+
     passengerCount++;
 
     const row = document.createElement("div");
@@ -239,11 +247,35 @@ function addPassengerRow() {
 
     row.innerHTML = `
         <div class="passenger-row-heading">
-            <strong>Passenger row ${passengerCount}</strong>
-            <button type="button" class="remove-passenger" aria-label="Remove this passenger row">Remove</button>
+            <strong>Passenger ${passengerCount}</strong>
+            <button type="button" class="remove-passenger"
+                aria-label="Remove this passenger">Remove</button>
+        </div>
+
+        <div class="booking-field">
+            <label>
+                <input type="checkbox" class="use-booking-details">
+                Utilise booking details as above
+            </label>
         </div>
 
         <div class="booking-grid">
+
+            <div class="booking-field">
+                <label>Full Name*</label>
+                <input type="text" class="passenger-name" required>
+            </div>
+
+            <div class="booking-field">
+                <label>Email Address*</label>
+                <input type="email" class="passenger-email" required>
+            </div>
+
+            <div class="booking-field">
+                <label>Mobile Number</label>
+                <input type="tel" class="passenger-mobile">
+            </div>
+
             <div class="booking-field">
                 <label>Membership Status*</label>
                 <select class="passenger-membership" required>
@@ -264,41 +296,143 @@ function addPassengerRow() {
             </div>
 
             <div class="booking-field">
-                <label>Number of Spaces*</label>
-                <input type="number" class="passenger-quantity" min="1" max="" value="1" required>
-            </div>
-
-            <div class="booking-field">
                 <label>Line Cost</label>
                 <output class="passenger-line-cost">£0.00</output>
                 <input type="hidden" class="passenger-cost">
             </div>
+
         </div>
     `;
 
     passengerRows.appendChild(row);
 
-    row.querySelectorAll("select, input").forEach(field => {
+    const useBookingDetails = row.querySelector(".use-booking-details");
+
+    // Handle the booking-details checkbox
+
+    useBookingDetails.addEventListener("change", () => {
+
+        const fields = [
+            row.querySelector(".passenger-name"),
+            row.querySelector(".passenger-email"),
+            row.querySelector(".passenger-mobile")
+        ];
+
+        if (useBookingDetails.checked) {
+
+            copyBookingDetails(row);
+
+            fields.forEach(field => {
+                field.readOnly = true;
+            });
+
+        } else {
+
+            fields.forEach(field => {
+                field.readOnly = false;
+            });
+
+        }
+
+        refreshBookingCheckboxes();
+
+    });
+
+
+    // Update totals when passenger details change
+
+    row.querySelectorAll("select, input:not([type='checkbox'])").forEach(field => {
         field.addEventListener("change", updateTotal);
         field.addEventListener("input", updateTotal);
     });
 
+
+    // Remove passenger row
+
     row.querySelector(".remove-passenger").addEventListener("click", () => {
+
         row.remove();
+
+        refreshBookingCheckboxes();
         updateTotal();
+
     });
 
+    refreshBookingCheckboxes();
     updateTotal();
+
 }
 
 
+// COPY BOOKING DETAILS INTO SELECTED PASSENGER
+
+function copyBookingDetails(row) {
+
+    row.querySelector(".passenger-name").value =
+        bookingFullName.value;
+
+    row.querySelector(".passenger-email").value =
+        bookingEmail.value;
+
+    row.querySelector(".passenger-mobile").value =
+        bookingMobile.value;
+
+}
+
+
+// ONLY ALLOW ONE PASSENGER TO USE BOOKING DETAILS
+
+function refreshBookingCheckboxes() {
+
+    const rows = [...passengerRows.querySelectorAll(".passenger-row")];
+
+    const selectedRow = rows.find(row =>
+        row.querySelector(".use-booking-details").checked
+    );
+
+    rows.forEach(row => {
+
+        const checkbox = row.querySelector(".use-booking-details");
+
+        checkbox.disabled = selectedRow && selectedRow !== row;
+
+    });
+
+}
+
+
+// KEEP COPIED DETAILS UP TO DATE
+
+[bookingFullName, bookingEmail, bookingMobile].forEach(field => {
+
+    field.addEventListener("input", () => {
+
+        const selectedRow = passengerRows.querySelector(
+            ".use-booking-details:checked"
+        );
+
+        if (selectedRow) {
+
+            copyBookingDetails(selectedRow.closest(".passenger-row"));
+
+        }
+
+    });
+
+});
+
+
+// PASSENGER PRICING
+
 function getPassengerPrice(category, membership, fixture) {
+
     if (!category || !membership || !fixture) return 0;
 
     const isJunior = category === "Junior U16";
     const isMember = membership === "MUSG Member";
 
     if (fixture.startsWith("Torquay")) {
+
         const today = new Date();
         const deadline = new Date(2026, 11, 1, 23, 59, 59);
 
@@ -307,35 +441,57 @@ function getPassengerPrice(category, membership, fixture) {
         }
 
         let price = isJunior ? 30 : 40;
+
         if (!isMember) price += 5;
+
         return price;
     }
 
     if (fixture.startsWith("Farnham")) {
+
         let price = isJunior ? 15 : 18;
+
         if (!isMember) price += 5;
+
         return price;
     }
 
     if (fixture.startsWith("Weston")) {
+
         let price = isJunior ? 20 : 30;
+
         if (!isMember) price += 5;
+
         return price;
     }
 
     return 0;
 }
+
+
+// UPDATE BOOKING TOTAL
+
 function updateTotal() {
+
     let total = 0;
     const breakdown = [];
 
     passengerRows.querySelectorAll(".passenger-row").forEach((row, index) => {
+
         const membership = row.querySelector(".passenger-membership").value;
         const category = row.querySelector(".passenger-category").value;
-        const quantity = Number(row.querySelector(".passenger-quantity").value) || 0;
+        const fullName = row.querySelector(".passenger-name").value;
 
-        const unitPrice = getPassengerPrice(category, membership, fixtureSelect.value);
-        const lineTotal = unitPrice * quantity;
+        const email = row.querySelector(".passenger-email").value;
+        const mobile = row.querySelector(".passenger-mobile").value;
+
+        // Each passenger row represents ONE seat
+
+        const lineTotal = getPassengerPrice(
+            category,
+            membership,
+            fixtureSelect.value
+        );
 
         row.querySelector(".passenger-line-cost").textContent =
             "£" + lineTotal.toFixed(2);
@@ -343,76 +499,129 @@ function updateTotal() {
         row.querySelector(".passenger-cost").value =
             "£" + lineTotal.toFixed(2);
 
+
+        // Give each passenger field its own email label
+
+        row.querySelector(".passenger-name").name =
+            `Passenger ${index + 1} - Full Name`;
+
+        row.querySelector(".passenger-email").name =
+            `Passenger ${index + 1} - Email`;
+
+        row.querySelector(".passenger-mobile").name =
+            `Passenger ${index + 1} - Mobile Number`;
+
         row.querySelector(".passenger-membership").name =
             `Passenger ${index + 1} - Membership Status`;
+
         row.querySelector(".passenger-category").name =
             `Passenger ${index + 1} - Category`;
-        row.querySelector(".passenger-quantity").name =
-            `Passenger ${index + 1} - Number of Spaces`;
+
         row.querySelector(".passenger-cost").name =
             `Passenger ${index + 1} - Line Cost`;
 
-        if (quantity > 0 && category && membership && fixtureSelect.value) {
+
+        if (category && membership && fixtureSelect.value) {
+
             total += lineTotal;
+
             breakdown.push(
-                `Row ${index + 1}: ${quantity} x ${category}, ${membership}, £${lineTotal.toFixed(2)}`
+                `Passenger ${index + 1}: ${fullName}, ${email}, ${mobile}, ${category}, ${membership}, £${lineTotal.toFixed(2)}`
             );
+
         }
+
     });
 
     totalDisplay.textContent = "£" + total.toFixed(2);
     totalHidden.value = "£" + total.toFixed(2);
     breakdownHidden.value = breakdown.join("\n");
+
 }
 
+
+// ADD PASSENGER BUTTON
+
 document.getElementById("add-passenger").addEventListener("click", addPassengerRow);
+
 fixtureSelect.addEventListener("change", updateTotal);
 
+
+// OPEN BOOKING FORM
+
 document.getElementById("open-booking").addEventListener("click", () => {
+
     const container = document.getElementById("booking-form-container");
+
     container.hidden = false;
-    container.scrollIntoView({ behavior: "smooth", block: "start" });
+
+    container.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
 
     if (passengerRows.children.length === 0) {
         addPassengerRow();
     }
+
 });
 
+
+// FORM SUBMISSION VALIDATION
+
 document.getElementById("coach-booking-form").addEventListener("submit", function(event) {
+
     updateTotal();
 
     if (!fixtureSelect.value || passengerRows.children.length === 0) {
+
         event.preventDefault();
-        alert("Please select a fixture and add at least one passenger row.");
+
+        alert("Please select a fixture and add at least one passenger.");
+
         return;
     }
 
     const rows = [...passengerRows.querySelectorAll(".passenger-row")];
+
     const incomplete = rows.some(row =>
+
+        !row.querySelector(".passenger-name").value.trim() ||
+        !row.querySelector(".passenger-email").value.trim() ||
         !row.querySelector(".passenger-membership").value ||
-        !row.querySelector(".passenger-category").value ||
-        Number(row.querySelector(".passenger-quantity").value) < 1
+        !row.querySelector(".passenger-category").value
+
     );
 
     if (incomplete) {
+
         event.preventDefault();
-        alert("Please complete all passenger rows, or remove any unused rows.");
+
+        alert("Please complete all passenger details, or remove any unused passenger rows.");
+
         return;
     }
 
     if (Number(totalHidden.value.replace(/[£,]/g, "")) <= 0) {
+
         event.preventDefault();
+
         alert("Please check your fixture and passenger details.");
+
         return;
     }
 
     document.getElementById("booking-date-hidden").value =
-        new Date().toLocaleString("en-GB", { timeZone: "Europe/London" });
+        new Date().toLocaleString("en-GB", {
+            timeZone: "Europe/London"
+        });
+
 });
 
-addPassengerRow();
-</script>
 
+// INITIAL PASSENGER ROW
+
+addPassengerRow();
 
 <script>
 /* MUSG Coach Image Carousel */
