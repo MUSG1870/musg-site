@@ -77,9 +77,27 @@ All departures from York Road.
 </tr>
 </table>
 
-<img src="images/coachtofarnham.PNG" class="page-image" alt="Farnham">
-<img src="images/coachtoWSM.PNG" class="page-image" alt="Weston">
-<img src="images/coachtoTorquayBFdeal.PNG" class="page-image" alt="Torquay Deal">
+<div class="coach-carousel" id="coach-carousel">
+
+    <img
+        id="coach-carousel-image"
+        src="images/coachtofarnham.PNG"
+        alt="Farnham coach travel"
+    >
+
+    <button type="button" class="carousel-arrow carousel-prev"
+        id="coach-prev" aria-label="Previous coach image">
+        &#10094;
+    </button>
+
+    <button type="button" class="carousel-arrow carousel-next"
+        id="coach-next" aria-label="Next coach image">
+        &#10095;
+    </button>
+
+    <div class="carousel-dots" id="coach-carousel-dots"></div>
+
+</div>
 
 </section>
 <h2>Contact MUSG</h2>
@@ -394,6 +412,89 @@ document.getElementById("coach-booking-form").addEventListener("submit", functio
 
 addPassengerRow();
 </script>
+
+/* MUSG Coach Image Carousel */
+
+const coachImages = [
+    {
+        src: "images/coachtofarnham.PNG",
+        alt: "Farnham coach travel"
+    },
+    {
+        src: "images/coachtoWSM.PNG",
+        alt: "Weston-super-Mare coach travel"
+    },
+    {
+        src: "images/coachtoTorquayBFdeal.PNG",
+        alt: "Torquay coach travel promotion"
+    }
+];
+
+const coachImage = document.getElementById("coach-carousel-image");
+const coachDots = document.getElementById("coach-carousel-dots");
+const coachCarousel = document.getElementById("coach-carousel");
+
+let currentCoachImage = 0;
+let coachCarouselTimer;
+
+function showCoachImage(index) {
+    currentCoachImage = (index + coachImages.length) % coachImages.length;
+
+    coachImage.src = coachImages[currentCoachImage].src;
+    coachImage.alt = coachImages[currentCoachImage].alt;
+
+    coachDots.querySelectorAll(".carousel-dot").forEach((dot, i) => {
+        dot.classList.toggle("active", i === currentCoachImage);
+    });
+}
+
+coachImages.forEach((image, index) => {
+    const dot = document.createElement("button");
+
+    dot.type = "button";
+    dot.className = "carousel-dot";
+    dot.setAttribute("aria-label", "Show coach image " + (index + 1));
+
+    dot.addEventListener("click", () => {
+        showCoachImage(index);
+        restartCoachCarousel();
+    });
+
+    coachDots.appendChild(dot);
+});
+
+document.getElementById("coach-prev").addEventListener("click", () => {
+    showCoachImage(currentCoachImage - 1);
+    restartCoachCarousel();
+});
+
+document.getElementById("coach-next").addEventListener("click", () => {
+    showCoachImage(currentCoachImage + 1);
+    restartCoachCarousel();
+});
+
+function startCoachCarousel() {
+    coachCarouselTimer = setInterval(() => {
+        showCoachImage(currentCoachImage + 1);
+    }, 5000);
+}
+
+function stopCoachCarousel() {
+    clearInterval(coachCarouselTimer);
+}
+
+function restartCoachCarousel() {
+    stopCoachCarousel();
+    startCoachCarousel();
+}
+
+coachCarousel.addEventListener("mouseenter", stopCoachCarousel);
+coachCarousel.addEventListener("mouseleave", startCoachCarousel);
+coachCarousel.addEventListener("focusin", stopCoachCarousel);
+coachCarousel.addEventListener("focusout", startCoachCarousel);
+
+showCoachImage(0);
+startCoachCarousel();
 
 </body>
 </html>
