@@ -159,7 +159,6 @@ To book yourself on a forthcoming coach, please get in touch using the below but
 <label for="fixture">Select Fixture*</label>
 <select id="fixture" name="Fixture" required>
 <option value="">Please select a fixture</option>
-<option value="Farnham FC - 24 November 2026">Farnham FC – Tuesday 24 November 2026</option>
 <option value="Weston-super-Mare FC - 28 November 2026">Weston-super-Mare FC – Saturday 28 November 2026</option>
 <option value="Torquay United FC - 23 February 2027">Torquay United FC – Tuesday 23 February 2027</option>
 </select>
@@ -304,12 +303,6 @@ function getPassengerPrice(category, membership, fixture) {
         return price;
     }
 
-    if (fixture.startsWith("Farnham")) {
-        let price = isJunior ? 15 : 18;
-        if (!isMember) price += 5;
-        return price;
-    }
-
     if (fixture.startsWith("Weston")) {
         let price = isJunior ? 20 : 30;
         if (!isMember) price += 5;
@@ -411,10 +404,6 @@ addPassengerRow();
 /* MUSG Coach Image Carousel */
 
 const coachImages = [
-    {
-        src: "images/coachtofarnham.PNG",
-        alt: "Farnham coach travel"
-    },
     {
         src: "images/coachtoWSM.PNG",
         alt: "Weston-super-Mare coach travel"
